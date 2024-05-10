@@ -1,0 +1,55 @@
+To create VM1 and VM2:
+
+-Open the virtual Machine Box.
+-Navigate to "Machine" -> "New" and create a new virtual machine of size 1024.
+-Choose to use an existing virtual hard disk file.
+-Add Bento Ubuntu as the operating system image.
+-Click "CREATE" to finalize the setup.
+
+
+To configure NAT network:
+
+Go to "File" -> "Preferences" -> "Network".
+Select "NAT Network" and click "OK".
+
+
+For both VM1 and VM2:
+
+Start the respective VM.
+Use "vagrant" as both the login and password.
+
+For VM1:
+1.Install net-tools and update packages:
+$ sudo apt install net-tools
+$ sudo apt update
+
+2.Use "ifconfig" to find the IP address.
+
+3.Create a file:
+$ vi filename.txt
+
+4.Click "i" to go into insert mode
+
+5.Type your message.
+
+6.To save 
+Esc 
+`:wq`
+7.Use "ls" to confirm the file creation.
+
+8.Use "cat filename.txt" to view its contents
+
+9.Transfer the file to VM2:
+$ scp filename.txt vagrant@(VM2 IP):/home/vagrant
+
+10.Confirm with "yes" and enter the password "vagrant" when prompted.
+
+
+
+For VM2:
+1.Use "ifconfig" to find the IP address.
+2.Use "pwd" to check current working directory(i.e /home/vagrant)
+3.Use "ls" to see the new file transferred.
+4.Use "cat filename.txt" to view its contents
+
+
